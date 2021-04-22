@@ -1,4 +1,4 @@
-package br.com.rabelonms;
+package br.com.rabelonms.comandos;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
