@@ -3,7 +3,7 @@ package br.com.rabelonms.comandos;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestComandosBrowser {
+public class ComandosBrowserTest {
 
     static WebDriver driver;
     public static void main(String[] args){

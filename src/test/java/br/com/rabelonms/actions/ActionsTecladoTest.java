@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-public class TestActionsTeclado {
+public class ActionsTecladoTest {
     static WebDriver driver;
     public static void main(String[] args){
         testTecladoAction();

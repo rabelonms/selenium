@@ -3,7 +3,7 @@ package br.com.rabelonms.javascript;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestComandosJavascript {
+public class ComandosJavascriptTest {
     static WebDriver driver;
     public static void main(String[] args){
         testJavaScriptFinal();
