@@ -11,7 +11,7 @@ public class TestLocator {
 
     static WebDriver driver;
     public static void main(String[] args){
-        testLinkText();
+        testCssSelectorSubstringLocator();
     }
     public static void testIdAndNameLocators(){
         System.setProperty("webdriver.chrome.driver","C:\\Users\\rabel\\drivers\\chromedriver.exe");
@@ -58,5 +58,47 @@ public class TestLocator {
         driver.get("https://www.facebook.com");
         //driver.findElement(By.linkText("Esqueceu a senha?")).click();
         driver.findElement(By.partialLinkText("a senha?")).click();
+        driver.close();
+    }
+    public static void testCssSelectorByIdLocator(){
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\rabel\\drivers\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.get("https://www.facebook.com/r.php?locale=pt_BR");
+        driver.findElement(By.cssSelector("label#menu_login_sho w_link")).click(); //ou o de baixo
+        //driver.findElement(By.cssSelector("label[id='menu_login_show_link']")).click();
+        driver.findElement(By.cssSelector("input#email")).sendKeys("nicolas@test.com");
+        driver.findElement(By.cssSelector("input#pass")).sendKeys("123456");
+        driver.findElement(By.cssSelector("label#loginbutton")).click();
+        driver.close();
+    }
+    public static void testCssSelectorByClassLocator(){
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\rabel\\drivers\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.get("https://www.facebook.com/r.php?locale=pt_BR");
+        driver.findElement(By.cssSelector("label.menu_login_show_link")).click();
+        driver.findElement(By.cssSelector("input[type='email']")).sendKeys("nicolas@test.com"); //not by class
+        driver.findElement(By.cssSelector("input[type='password']")).sendKeys("123456"); //not by class
+        driver.findElement(By.cssSelector("label.login_form_login_button")).click();
+        driver.close();
+    }
+    public static void testCssSelectorByAttributeLocator(){
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\rabel\\drivers\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.get("https://www.facebook.com/r.php?locale=pt_BR");
+        driver.findElement(By.cssSelector("label[id='menu_login_show_link']")).click();
+        driver.findElement(By.cssSelector("input[name='email']")).sendKeys("nicolas@test.com");
+        driver.findElement(By.cssSelector("input[data-testid='royal_pass']")).sendKeys("123456");
+        driver.findElement(By.cssSelector("label[id='loginbutton']")).click();
+        driver.close();
+    }
+    public static void testCssSelectorSubstringLocator(){
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\rabel\\drivers\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.get("https://www.facebook.com/r.php?locale=pt_BR");
+
+        driver.findElement(By.cssSelector("input[name^='first']")).sendKeys("nicolas"); //prefixo
+        driver.findElement(By.cssSelector("input[name$='astname']")).sendKeys("rabelo"); //sufixo
+        driver.findElement(By.cssSelector("input[name*='email__']")).sendKeys("nicolas@test.com");
+        driver.close();
     }
 }
